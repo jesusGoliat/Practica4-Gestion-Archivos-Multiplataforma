@@ -10,8 +10,11 @@ Future<void> captura(
   IntegrationTestWidgetsFlutterBinding binding,
   String nombre,
 ) async {
-  await tester.pump(const Duration(milliseconds: 400));
+  await tester.pump(const Duration(milliseconds: 800));
   await binding.takeScreenshot(nombre);
+  // La captura nativa de iOS se completa de forma asíncrona; esperar evita
+  // que dos capturas se solapen y que el PNG no corresponda a la pantalla.
+  await Future<void>.delayed(const Duration(milliseconds: 500));
 }
 
 Future<void> volver(WidgetTester tester) async {

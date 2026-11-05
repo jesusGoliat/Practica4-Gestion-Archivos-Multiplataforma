@@ -68,6 +68,7 @@ jobs:
       - name: Prueba de integración con capturas
         working-directory: apps/${{ matrix.app }}
         run: |
+          rm -rf screenshots
           flutter drive \
             --driver=test_driver/integration_test.dart \
             --target=integration_test/evidencia_ios_test.dart \

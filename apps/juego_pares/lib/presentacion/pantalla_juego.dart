@@ -221,7 +221,7 @@ class _Estadisticas extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: _Dato(
-              titulo: T.movimientos,
+              titulo: 'Movs.',
               valor: '${partida.movimientos.length}',
               icono: Icons.touch_app_outlined,
             ),
