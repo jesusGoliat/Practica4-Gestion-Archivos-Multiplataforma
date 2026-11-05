@@ -12,10 +12,6 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: ios-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   ios:
     name: iOS ${{ matrix.app }}
