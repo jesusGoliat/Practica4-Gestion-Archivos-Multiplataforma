@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import UniformTypeIdentifiers
 
 /// Selector de carpetas para iOS.
 ///
@@ -118,7 +119,7 @@ public class SelectorCarpetasIosPlugin: NSObject, FlutterPlugin, UIDocumentPicke
     do {
       let url = try URL(
         resolvingBookmarkData: datos,
-        options: [.withoutUI],
+        options: [],
         relativeTo: nil,
         bookmarkDataIsStale: &obsoleto
       )
