@@ -91,10 +91,15 @@ para reproducir la compilación.
   mensajes claros para permisos revocados, rutas inexistentes, errores de
   lectura o espacio insuficiente.
 
-### Capturas Android
+### Evidencia Android del gestor
 
-Las capturas se toman en el celular físico con `adb exec-out screencap` y se
-guardan con nombres significativos en `docs/img/android/gestor/`.
+| Inicio | Tema Azul | Explorador | Visor JSON |
+|---|---|---|---|
+| ![Inicio](docs/img/android/gestor/01-inicio-guinda.png) | ![Azul](docs/img/android/gestor/02-tema-azul.png) | ![Explorador](docs/img/android/gestor/03-explorador.png) | ![JSON](docs/img/android/gestor/04-visor-json.png) |
+
+| Visor XML | Visor imagen | Imagen girada | Recientes | Modo oscuro |
+|---|---|---|---|---|
+| ![XML](docs/img/android/gestor/05-visor-xml.png) | ![Imagen](docs/img/android/gestor/06-visor-imagen.png) | ![Girada](docs/img/android/gestor/07-imagen-girada.png) | ![Recientes](docs/img/android/gestor/08-recientes.png) | ![Oscuro](docs/img/android/gestor/09-modo-oscuro.png) |
 
 ### Capturas iOS
 
@@ -135,10 +140,15 @@ toma capturas con `integration_test` + `flutter drive`.
 - **Visor de partidas:** muestra el contenido del TXT/XML/JSON con el mismo
   resaltado del gestor.
 
-### Capturas
+### Evidencia Android del juego
 
-`docs/img/android/juego/` y `docs/img/ios/juego/` contienen los recorridos de
-inicio, tablero, partida guardada, lista y visor de contenido, en los dos temas.
+| Inicio | Tablero 4×4 | Cartas volteadas | Pausa |
+|---|---|---|---|
+| ![Inicio](docs/img/android/juego/01-inicio.png) | ![Tablero](docs/img/android/juego/02-juego-4x4.png) | ![Cartas](docs/img/android/juego/03-cartas-volteadas.png) | ![Pausa](docs/img/android/juego/04-pausa.png) |
+
+| Partida guardada | Lista de partidas | Contenido JSON | Tema Azul | Laboratorio 6×6 |
+|---|---|---|---|---|
+| ![Guardada](docs/img/android/juego/05-partida-guardada.png) | ![Lista](docs/img/android/juego/06-lista-partidas.png) | ![Contenido](docs/img/android/juego/07-contenido-json.png) | ![Ajustes](docs/img/android/juego/08-ajustes-tema-azul.png) | ![Lab](docs/img/android/juego/09-laboratorio-contrarreloj.png) |
 
 ### Evidencia iOS del juego
 
