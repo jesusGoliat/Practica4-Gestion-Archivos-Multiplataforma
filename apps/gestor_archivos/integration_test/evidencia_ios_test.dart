@@ -14,6 +14,16 @@ Future<void> captura(
   await binding.takeScreenshot(nombre);
 }
 
+Future<void> volver(WidgetTester tester) async {
+  final boton = find.byType(BackButton);
+  if (boton.evaluate().isNotEmpty) {
+    await tester.tap(boton.first);
+  } else {
+    Navigator.of(tester.element(find.byType(Scaffold).first)).pop();
+  }
+  await tester.pumpAndSettle();
+}
+
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -44,15 +54,13 @@ void main() {
     await tester.tap(find.byKey(const Key('entrada-datos.json')));
     await tester.pumpAndSettle();
     await captura(tester, binding, '04-visor-json');
-    await tester.pageBack();
-    await tester.pumpAndSettle();
+    await volver(tester);
 
     // Visor XML.
     await tester.tap(find.byKey(const Key('entrada-configuracion.xml')));
     await tester.pumpAndSettle();
     await captura(tester, binding, '05-visor-xml');
-    await tester.pageBack();
-    await tester.pumpAndSettle();
+    await volver(tester);
 
     // Visor de imagen.
     await tester.tap(find.byKey(const Key('entrada-paisaje_escom.png')));
@@ -61,8 +69,7 @@ void main() {
     await tester.tap(find.byKey(const Key('imagen-girar')));
     await tester.pump(const Duration(milliseconds: 400));
     await captura(tester, binding, '07-imagen-girada');
-    await tester.pageBack();
-    await tester.pumpAndSettle();
+    await volver(tester);
 
     // Archivo sin visor interno.
     await tester.tap(find.byKey(const Key('entrada-muestra.xyz')));

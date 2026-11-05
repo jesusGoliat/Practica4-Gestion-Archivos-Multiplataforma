@@ -14,6 +14,16 @@ Future<void> captura(
   await binding.takeScreenshot(nombre);
 }
 
+Future<void> volver(WidgetTester tester) async {
+  final boton = find.byType(BackButton);
+  if (boton.evaluate().isNotEmpty) {
+    await tester.tap(boton.first);
+  } else {
+    Navigator.of(tester.element(find.byType(Scaffold).first)).pop();
+  }
+  await tester.pumpAndSettle();
+}
+
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -56,14 +66,13 @@ void main() {
     await captura(tester, binding, '05-partida-guardada');
 
     // Volver al inicio y abrir la lista de partidas.
-    await tester.pageBack();
-    await tester.pumpAndSettle();
+    await volver(tester);
     await tester.tap(find.byKey(const Key('nav-partidas')));
     await tester.pumpAndSettle();
     await captura(tester, binding, '06-lista-partidas');
 
     // Ver el contenido del archivo JSON.
-    await tester.tap(find.byIcon(Icons.more_vert).first);
+    await tester.tap(find.byType(PopupMenuButton<String>).first);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Ver contenido'));
     await tester.pumpAndSettle();
