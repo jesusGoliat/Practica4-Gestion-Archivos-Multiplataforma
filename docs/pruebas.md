@@ -10,7 +10,7 @@
 | Android | Celular físico por USB (modelo y API se registran al ejecutar) |
 | iOS | Simulador de iPhone en GitHub Actions (`macos-15`); en la corrida de evidencia se usó iPhone SE (3.ª generación), iOS 26.2 |
 | Flutter / Dart | 3.47.6 / 3.13.5 |
-| SHA probado | Se actualiza al cerrar la entrega — commits posteriores solo documentación |
+| SHA probado | `2d1faf7dd5b377fae50b5621005466fe2f4a68ab` — commits posteriores solo documentación |
 
 Las pruebas unitarias y de widgets se ejecutaron antes de la evidencia en
 dispositivo/simulador. El plan de este documento se escribió antes de ejecutar
