@@ -270,16 +270,7 @@ capturas; cualquier diferencia se documenta en “Problemas conocidos”.
 
 ## Conclusiones
 
-Antes de esta práctica pensaba que “leer archivos” era una sola operación.
-Al implementar ambas apps entendí que en Android y iOS el acceso es una
-**concesión explícita del usuario**: SAF y los security-scoped bookmarks no son
-un detalle, son el corazón del diseño. También aprendí que guardar no termina
-en `writeAsString`: hace falta escritura atómica, checksum, validación y un
-mensaje claro cuando el archivo está dañado, porque el usuario no debería perder
-las demás partidas por un error ajeno. Me sorprendió que el mismo código
-Flutter pueda comportarse distinto según quién es el proveedor de documentos;
-por eso la app distingue entre “no permitido”, “no disponible” y “error real”,
-en lugar de mostrar un mensaje genérico.
+Antes de realizar esta práctica, pensaba que leer un archivo era simplemente abrirlo y obtener su contenido. Sin embargo, al implementar ambas aplicaciones me di cuenta de que el proceso es más complejo, ya que tanto en Android como en iOS el acceso depende de los permisos que concede el usuario. También aprendí que guardar un archivo no consiste únicamente en utilizar `writeAsString`, sino que hay que considerar qué sucede si la escritura se interrumpe, si el archivo se daña o si los datos no pasan la validación. Otro aspecto que me llamó la atención fue que, aunque ambas aplicaciones están desarrolladas con Flutter, el comportamiento puede variar dependiendo del proveedor de documentos del sistema. Por esta razón, fue necesario distinguir entre problemas de permisos, archivos no disponibles y errores de lectura o escritura, en lugar de tratarlos todos como un mismo problema.
 
 ---
 
