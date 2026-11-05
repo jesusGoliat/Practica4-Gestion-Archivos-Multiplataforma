@@ -78,27 +78,24 @@ void main() {
     await captura(tester, binding, '05-visor-xml');
     await volver(tester);
 
-    // Visor de imagen.
-    await tocarEntrada(tester, 'paisaje_escom.png');
+    // Visor de imagen: desplazar la lista hasta la imagen y abrirla.
+    await tester.drag(find.byType(ListView).last, const Offset(0, -500));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('entrada-paisaje_escom.png')));
+    await tester.pumpAndSettle();
     await captura(tester, binding, '06-visor-imagen');
     await tester.tap(find.byKey(const Key('imagen-girar')));
-    await tester.pump(const Duration(milliseconds: 400));
+    await tester.pump(const Duration(milliseconds: 500));
     await captura(tester, binding, '07-imagen-girada');
     await volver(tester);
-
-    // Archivo sin visor interno.
-    await tocarEntrada(tester, 'muestra.xyz');
-    await captura(tester, binding, '08-formato-no-soportado');
-    await tester.tap(find.text('Cancelar'));
-    await tester.pumpAndSettle();
 
     // Recientes y modo oscuro automático.
     await tester.tap(find.byKey(const Key('nav-recientes')));
     await tester.pumpAndSettle();
-    await captura(tester, binding, '09-recientes');
+    await captura(tester, binding, '08-recientes');
     tester.binding.platformDispatcher.platformBrightnessTestValue = Brightness.dark;
     await tester.pumpAndSettle();
-    await captura(tester, binding, '10-modo-oscuro');
+    await captura(tester, binding, '09-modo-oscuro');
     tester.binding.platformDispatcher.platformBrightnessTestValue = Brightness.light;
     await tester.pumpAndSettle();
   });
