@@ -71,7 +71,7 @@ jobs:
           flutter drive \
             --driver=test_driver/integration_test.dart \
             --target=integration_test/evidencia_ios_test.dart \
-            -d "$UDID"
+            -d "$udid"
 
       - name: Compilar para simulador
         working-directory: apps/${{ matrix.app }}
