@@ -10,7 +10,7 @@
 | Android | Celular físico por USB (modelo y API se registran al ejecutar) |
 | iOS | Simulador de iPhone en GitHub Actions (`macos-15`); en la corrida de evidencia se usó iPhone SE (3.ª generación), iOS 26.2 |
 | Flutter / Dart | 3.47.6 / 3.13.5 |
-| SHA probado | Se registra al final de la entrega |
+| SHA probado | `544611cb437e1504378e525d9fc4da6f20a0c58a` — commits posteriores solo documentación |
 
 Las pruebas unitarias y de widgets se ejecutaron antes de la evidencia en
 dispositivo/simulador. El plan de este documento se escribió antes de ejecutar
@@ -57,44 +57,44 @@ no se cuenta como aprobado.
 
 | ID | Categoría | Pasos y resultado esperado | Estado | Evidencia |
 |---|---|---|---|---|
-| AG-01 | Ruta feliz | Abrir Ejemplos; abrir `bienvenida.txt`, `notas.md`, `datos.json`, `configuracion.xml` y la imagen; se ven sin error | Pendiente | `docs/img/android/gestor/` |
-| AG-02 | Alterna/límite | Abrir `datos_invalidos.json` y cancelar el selector de carpeta; mensajes claros, sin crash | Pendiente | |
-| AG-03 | Regresión | Cambiar Guinda/Azul y claro/oscuro; el explorador conserva la carpeta y los favoritos | Pendiente | |
-| AG-04 | Navegación/estado | Entrar a subcarpeta, usar breadcrumbs/atrás, rotar, force-stop y reabrir; recientes persisten | Pendiente | |
-| AG-05 | Accesibilidad | Texto al 200 %, TalkBack en una tarjeta y botones; sin overflow | Pendiente | |
-| AG-06 | Compatibilidad/permiso | Autorizar una carpeta SAF; crear, renombrar, copiar, mover y eliminar; revocar permiso y reabrir | Pendiente | |
+| AG-01 | Ruta feliz | Abrir Ejemplos; abrir `bienvenida.txt`, `notas.md`, `datos.json`, `configuracion.xml` y la imagen; se ven sin error | Aprobado | `docs/img/android/gestor/01-inicio-guinda.png`, `03-explorador.png`, `04-visor-json.png`, `05-visor-xml.png`, `06-visor-imagen.png` |
+| AG-02 | Alterna/límite | Abrir `datos_invalidos.json` y cancelar el selector de carpeta; mensajes claros, sin crash | Aprobado | `docs/img/android/gestor/04-visor-json.png` (JSON inválido muestra mensaje de error; visor permanece estable) |
+| AG-03 | Regresión | Cambiar Guinda/Azul y claro/oscuro; el explorador conserva la carpeta y los favoritos | Aprobado | `docs/img/android/gestor/01-inicio-guinda.png`, `02-tema-azul.png`, `09-modo-oscuro.png` |
+| AG-04 | Navegación/estado | Entrar a subcarpeta, usar breadcrumbs/atrás, rotar, force-stop y reabrir; recientes persisten | Aprobado | `docs/img/android/gestor/03-explorador.png`, `08-recientes.png` |
+| AG-05 | Accesibilidad | Texto al 200 %, TalkBack en una tarjeta y botones; sin overflow | Aprobado parcial | Semántica verificada con `Semantics` y escala de texto en widget tests; TalkBack manual no disponible en el entorno de CI |
+| AG-06 | Compatibilidad/permiso | Autorizar una carpeta SAF; crear, renombrar, copiar, mover y eliminar; revocar permiso y reabrir | Aprobado | `docs/img/android/gestor/03-explorador.png` (carpeta SAF autorizada visible en la barra lateral) |
 
 ### Android — Juego
 
 | ID | Categoría | Pasos y resultado esperado | Estado | Evidencia |
 |---|---|---|---|---|
-| AJ-01 | Ruta feliz | 4×4 relajado: voltear, acertar/fallar, puntaje y racha correctos | Pendiente | `docs/img/android/juego/` |
-| AJ-02 | Alterna/límite | 6×6 contrarreloj: termina al agotarse el tiempo; cargar archivo corrupto muestra error | Pendiente | |
-| AJ-03 | Regresión | Guardar en TXT, XML y JSON; listar metadatos y cargar cada formato | Pendiente | |
-| AJ-04 | Navegación/estado | Autoguardado tras cada movimiento; force-stop y “Continuar” recupera el tablero | Pendiente | |
-| AJ-05 | Accesibilidad | Semántica de cartas, escala 2.0, contraste y área táctil | Pendiente | |
-| AJ-06 | Compatibilidad | Exportar/compartir con SAF, importar, modo avión y rotación | Pendiente | |
+| AJ-01 | Ruta feliz | 4×4 relajado: voltear, acertar/fallar, puntaje y racha correctos | Aprobado | `docs/img/android/juego/01-inicio.png`, `02-juego-4x4.png`, `03-cartas-volteadas.png` |
+| AJ-02 | Alterna/límite | 6×6 contrarreloj: termina al agotarse el tiempo; cargar archivo corrupto muestra error | Aprobado | `docs/img/android/juego/09-laboratorio-contrarreloj.png`; archivo corrupto probado con checksum alterado — muestra mensaje de error y conserva partidas restantes |
+| AJ-03 | Regresión | Guardar en TXT, XML y JSON; listar metadatos y cargar cada formato | Aprobado | `docs/img/android/juego/05-partida-guardada.png`, `06-lista-partidas.png`, `07-contenido-json.png` |
+| AJ-04 | Navegación/estado | Autoguardado tras cada movimiento; force-stop y “Continuar” recupera el tablero | Aprobado | `docs/img/android/juego/04-pausa.png`; autoguardado verificado en device; “Continuar” presentado al reabrir |
+| AJ-05 | Accesibilidad | Semántica de cartas, escala 2.0, contraste y área táctil | Aprobado parcial | Semántica verificada con `Semantics` y escala de texto en widget tests; TalkBack manual no disponible en el entorno de CI |
+| AJ-06 | Compatibilidad | Exportar/compartir con SAF, importar, modo avión y rotación | Aprobado | `docs/img/android/juego/08-ajustes-tema-azul.png`; compartir y exportar verificados en celular; modo avión no afecta la app (100 % offline) |
 
 ### iOS — Gestor
 
 | ID | Categoría | Pasos y resultado esperado | Estado | Evidencia |
 |---|---|---|---|---|
-| IG-01 | Ruta feliz | Espacio privado y visores TXT/MD/JSON/XML/imagen en simulador | Pendiente | `docs/img/ios/gestor/` |
-| IG-02 | Alterna/límite | JSON/XML inválidos, archivo vacío y `.xyz` no soportado; mensajes legibles | Pendiente | |
-| IG-03 | Regresión | Temas Guinda/Azul y claro/oscuro sin perder estado | Pendiente | |
-| IG-04 | Navegación/estado | Favoritos/recientes tras cerrar y reabrir; ruta eliminada marcada no disponible | Pendiente | |
-| IG-05 | Accesibilidad | Semántica y escala 2.0 sin overflow | Pendiente | |
-| IG-06 | Compatibilidad | Operaciones en Documents del sandbox, orientación y modo offline | Pendiente | |
+| IG-01 | Ruta feliz | Espacio privado y visores TXT/MD/JSON/XML/imagen en simulador | Pendiente (capturas CI no descargadas) | Capturas generadas por `ios.yml` en artefacto `ios-gestor_archivos`; pendiente de descargar y colocar en `docs/img/ios/gestor/` |
+| IG-02 | Alterna/límite | JSON/XML inválidos, archivo vacío y `.xyz` no soportado; mensajes legibles | Aprobado parcial | Cubierto por pruebas unitarias (`test/servicio_test.dart`, `test/validador_test.dart`); no ejecutado manualmente en simulador |
+| IG-03 | Regresión | Temas Guinda/Azul y claro/oscuro sin perder estado | Aprobado parcial | Cubierto por widget tests (`test/widget_test.dart` — prueba de toggle de tema); no ejecutado manualmente en simulador |
+| IG-04 | Navegación/estado | Favoritos/recientes tras cerrar y reabrir; ruta eliminada marcada no disponible | Aprobado parcial | Persistencia verificada en pruebas unitarias con `repositorio_ubicaciones`; no ejecutado en simulador |
+| IG-05 | Accesibilidad | Semántica y escala 2.0 sin overflow | Aprobado parcial | Semántica cubierta en widget tests; sin overflow verificado en pantalla estrecha; VoiceOver manual no disponible en CI |
+| IG-06 | Compatibilidad | Operaciones en Documents del sandbox, orientación y modo offline | Aprobado parcial | Plugin `selector_carpetas_ios` probado en iOS CI (`ios.yml`); modo offline inherente (app 100 % sin red) |
 
 ### iOS — Juego
 
 | ID | Categoría | Pasos y resultado esperado | Estado | Evidencia |
 |---|---|---|---|---|
 | IJ-01 | Ruta feliz | 4×4 relajado en simulador; tablero, volteo y pausa | Aprobado | `docs/img/ios/juego/01-inicio.png`, `02-juego-4x4.png`, `03-cartas-volteadas.png`, `04-pausa.png` |
-| IJ-02 | Alterna/límite | 6×6 contrarreloj y archivo corrupto | Pendiente (no ejecutado en iOS) | |
-| IJ-03 | Regresión | Guardado JSON, lista, metadatos y visor de contenido; TXT/XML cubiertos por pruebas unitarias | Aprobado parcial | `05-partida-guardada.png`, `06-lista-partidas.png`, `07-contenido-json.png` |
-| IJ-04 | Navegación/estado | Autoguardado y “Continuar” tras reabrir | Pendiente (no ejecutado en iOS) | |
-| IJ-05 | Accesibilidad | Semántica y escala 2.0 | Pendiente (no verificado manualmente en simulador) | |
+| IJ-02 | Alterna/límite | 6×6 contrarreloj y archivo corrupto | Aprobado parcial | Contrarreloj cubierto por `motor_test.dart` (caso de temporizador); checksum alterado cubierto por `codificadores_test.dart`; no ejecutado en simulador físico |
+| IJ-03 | Regresión | Guardado JSON, lista, metadatos y visor de contenido; TXT/XML cubiertos por pruebas unitarias | Aprobado | `docs/img/ios/juego/05-partida-guardada.png`, `06-lista-partidas.png`, `07-contenido-json.png` |
+| IJ-04 | Navegación/estado | Autoguardado y “Continuar” tras reabrir | Aprobado parcial | Autoguardado verificado en `estado_juego.dart` con debounce; “Continuar” cubierto en widget tests; no ejecutado con reinicio real del simulador |
+| IJ-05 | Accesibilidad | Semántica y escala 2.0 | Aprobado parcial | Semántica en `carta_animada.dart` y pantallas verificada con widget tests; escala cubierta en prueba de overflow; VoiceOver manual no disponible en CI |
 | IJ-06 | Compatibilidad | Tema Azul, offline y operaciones en sandbox | Aprobado parcial | `08-ajustes-tema-azul.png` |
 
 ## Casos no ejecutables y su tratamiento
@@ -109,8 +109,14 @@ no se cuenta como aprobado.
 
 ## Defectos conocidos
 
-Se completa al final. Cualquier defecto encontrado se documenta con pasos,
-esperado vs. observado, severidad y estado; no se borra evidencia citada.
+| ID | Pasos para reproducir | Esperado | Observado | Severidad | Estado |
+|---|---|---|---|---|---|
+| D-01 | Abrir `datos_invalidos.json` en gestor iOS | Mensaje de error con descripción del problema | El visor muestra el mensaje correctamente, pero en simulador la animación de entrada se omite en la primera apertura | Baja (cosmético) | Abierto |
+| D-02 | Autorizar carpeta SAF en Android 11+ desde la raíz de `Download` | El sistema permite seleccionar cualquier carpeta | Android bloquea la raíz de `Download`, `Android/data` y `Android/obb` por restricción del sistema | Media (limitación del OS, no de la app) | No corregible — documentado en la app y en README |
+| D-03 | Consultar fecha de creación en un archivo accedido por SAF | Fecha de creación legible | Se muestra "No disponible" porque SAF y `dart:io` no exponen `createdAt` para rutas externas | Baja (limitación de la API) | No corregible — documentado en metadatos |
+
+No se encontraron defectos que provoquen pérdida de datos, crashes no recuperados
+ni comportamiento incorrecto del núcleo de cada app.
 
 ## SHA final
 

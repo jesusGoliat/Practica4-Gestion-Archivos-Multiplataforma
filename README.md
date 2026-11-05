@@ -238,9 +238,9 @@ bloqueado se documenta como tal y no se cuenta como aprobado.
 
 Las capturas se organizan por sistema y app:
 
-- `docs/img/android/gestor/01-inicio-guinda.png` … `08-tema-azul-oscuro.png`
-- `docs/img/android/juego/01-inicio.png` … `08-tema-azul-oscuro.png`
-- `docs/img/ios/gestor/01-inicio-guinda.png` … `10-modo-oscuro.png`
+- `docs/img/android/gestor/01-inicio-guinda.png` … `09-modo-oscuro.png`
+- `docs/img/android/juego/01-inicio.png` … `09-laboratorio-contrarreloj.png`
+- `docs/img/ios/gestor/` — capturas generadas por el workflow `ios.yml`; disponibles como artefacto `ios-gestor_archivos` en GitHub Actions
 - `docs/img/ios/juego/01-inicio.png` … `08-ajustes-tema-azul.png`
 
 Cada archivo se nombra al momento de tomarlo y se describe en
