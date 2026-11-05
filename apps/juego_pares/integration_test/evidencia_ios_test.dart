@@ -31,12 +31,12 @@ void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('Recorrido de evidencia del juego', (tester) async {
+    await app.main();
+    await tester.pumpAndSettle();
     if (Platform.isAndroid) {
       await binding.convertFlutterSurfaceToImage();
       await tester.pumpAndSettle();
     }
-    await app.main();
-    await tester.pumpAndSettle();
     await captura(tester, binding, '01-inicio');
 
     // Nueva partida 4×4 relajada.

@@ -75,7 +75,8 @@ class CodificadorJson implements CodificadorPartida {
     if (mapa['schema'] != EstadoPartida.esquema) {
       throw const ErrorPartida(TipoErrorPartida.formato, 'El archivo no es una partida de Pares IPN.');
     }
-    final checksum = mapa.remove('checksum') as String?;
+    final checksumValor = mapa.remove('checksum');
+    final checksum = checksumValor is String ? checksumValor : null;
     final partida = EstadoPartida.desdeJson(mapa);
     return _validarConChecksum(partida, checksum);
   }

@@ -8,7 +8,7 @@
 | Fecha | 5 de noviembre de 2026 |
 | Aplicaciones | Gestor de archivos (`gestor_archivos`) y juego (`juego_pares`) |
 | Android | Celular físico por USB (modelo y API se registran al ejecutar) |
-| iOS | Simulador de iPhone en GitHub Actions (`macos-15`) |
+| iOS | Simulador de iPhone en GitHub Actions (`macos-15`); en la corrida de evidencia se usó iPhone SE (3.ª generación), iOS 26.2 |
 | Flutter / Dart | 3.47.6 / 3.13.5 |
 | SHA probado | Se registra al final de la entrega |
 
@@ -90,12 +90,12 @@ no se cuenta como aprobado.
 
 | ID | Categoría | Pasos y resultado esperado | Estado | Evidencia |
 |---|---|---|---|---|
-| IJ-01 | Ruta feliz | 4×4 relajado en simulador; puntaje y movimientos | Pendiente | `docs/img/ios/juego/` |
-| IJ-02 | Alterna/límite | 6×6 contrarreloj y archivo corrupto | Pendiente | |
-| IJ-03 | Regresión | Round-trip TXT/XML/JSON, lista y metadatos | Pendiente | |
-| IJ-04 | Navegación/estado | Autoguardado y “Continuar” tras reabrir | Pendiente | |
-| IJ-05 | Accesibilidad | Semántica y escala 2.0 | Pendiente | |
-| IJ-06 | Compatibilidad | Tema oscuro, orientación, offline y operaciones en sandbox | Pendiente | |
+| IJ-01 | Ruta feliz | 4×4 relajado en simulador; tablero, volteo y pausa | Aprobado | `docs/img/ios/juego/01-inicio.png`, `02-juego-4x4.png`, `03-cartas-volteadas.png`, `04-pausa.png` |
+| IJ-02 | Alterna/límite | 6×6 contrarreloj y archivo corrupto | Pendiente (no ejecutado en iOS) | |
+| IJ-03 | Regresión | Guardado JSON, lista, metadatos y visor de contenido; TXT/XML cubiertos por pruebas unitarias | Aprobado parcial | `05-partida-guardada.png`, `06-lista-partidas.png`, `07-contenido-json.png` |
+| IJ-04 | Navegación/estado | Autoguardado y “Continuar” tras reabrir | Pendiente (no ejecutado en iOS) | |
+| IJ-05 | Accesibilidad | Semántica y escala 2.0 | Pendiente (no verificado manualmente en simulador) | |
+| IJ-06 | Compatibilidad | Tema Azul, offline y operaciones en sandbox | Aprobado parcial | `08-ajustes-tema-azul.png` |
 
 ## Casos no ejecutables y su tratamiento
 

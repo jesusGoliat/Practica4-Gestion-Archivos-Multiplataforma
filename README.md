@@ -61,6 +61,7 @@ evita que las dos versiones digan o se vean distinto.
 | JDK | 21 |
 | Android `minSdk` / `targetSdk` / `compileSdk` | 24 / 36 / 36 |
 | iOS deployment target | 15.0 |
+| Simulador iOS de evidencia | iPhone SE (3.ª generación), iOS 26.2, en GitHub Actions `macos-15` |
 | Xcode usado en CI | El disponible en `macos-15`; se imprime en el log del workflow |
 | Paquetes principales | `saf`, `file_picker`, `share_plus`, `open_filex`, `path_provider`, `shared_preferences`, `image`, `xml`, `mime`, `audioplayers`, `crypto`, `provider` |
 
@@ -129,6 +130,17 @@ como artefactos y se colocan en `docs/img/ios/gestor/`.
 
 `docs/img/android/juego/` y `docs/img/ios/juego/` contienen los recorridos de
 inicio, tablero, partida guardada, lista y visor de contenido, en los dos temas.
+
+### Evidencia iOS del juego
+
+| Inicio | Tablero 4×4 | Cartas volteadas | Pausa |
+|---|---|---|---|
+| ![Inicio](docs/img/ios/juego/01-inicio.png) | ![Tablero](docs/img/ios/juego/02-juego-4x4.png) | ![Cartas](docs/img/ios/juego/03-cartas-volteadas.png) | ![Pausa](docs/img/ios/juego/04-pausa.png) |
+
+| Partida guardada | Lista de partidas | Contenido JSON | Tema Azul |
+|---|---|---|---|
+| ![Guardada](docs/img/ios/juego/05-partida-guardada.png) | ![Lista](docs/img/ios/juego/06-lista-partidas.png) | ![Contenido](docs/img/ios/juego/07-contenido-json.png) | ![Ajustes](docs/img/ios/juego/08-ajustes-tema-azul.png) |
+
 
 ---
 
