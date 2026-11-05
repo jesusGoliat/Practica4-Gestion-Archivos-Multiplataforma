@@ -10,7 +10,7 @@
 | Android | Celular físico por USB (modelo y API se registran al ejecutar) |
 | iOS | Simulador de iPhone en GitHub Actions (`macos-15`); en la corrida de evidencia se usó iPhone SE (3.ª generación), iOS 26.2 |
 | Flutter / Dart | 3.47.6 / 3.13.5 |
-| SHA probado | `544611cb437e1504378e525d9fc4da6f20a0c58a` — commits posteriores solo documentación |
+| SHA probado | Se actualiza al cerrar la entrega — commits posteriores solo documentación |
 
 Las pruebas unitarias y de widgets se ejecutaron antes de la evidencia en
 dispositivo/simulador. El plan de este documento se escribió antes de ejecutar
@@ -79,12 +79,12 @@ no se cuenta como aprobado.
 
 | ID | Categoría | Pasos y resultado esperado | Estado | Evidencia |
 |---|---|---|---|---|
-| IG-01 | Ruta feliz | Espacio privado y visores TXT/MD/JSON/XML/imagen en simulador | Pendiente (capturas CI no descargadas) | Capturas generadas por `ios.yml` en artefacto `ios-gestor_archivos`; pendiente de descargar y colocar en `docs/img/ios/gestor/` |
-| IG-02 | Alterna/límite | JSON/XML inválidos, archivo vacío y `.xyz` no soportado; mensajes legibles | Aprobado parcial | Cubierto por pruebas unitarias (`test/servicio_test.dart`, `test/validador_test.dart`); no ejecutado manualmente en simulador |
-| IG-03 | Regresión | Temas Guinda/Azul y claro/oscuro sin perder estado | Aprobado parcial | Cubierto por widget tests (`test/widget_test.dart` — prueba de toggle de tema); no ejecutado manualmente en simulador |
-| IG-04 | Navegación/estado | Favoritos/recientes tras cerrar y reabrir; ruta eliminada marcada no disponible | Aprobado parcial | Persistencia verificada en pruebas unitarias con `repositorio_ubicaciones`; no ejecutado en simulador |
-| IG-05 | Accesibilidad | Semántica y escala 2.0 sin overflow | Aprobado parcial | Semántica cubierta en widget tests; sin overflow verificado en pantalla estrecha; VoiceOver manual no disponible en CI |
-| IG-06 | Compatibilidad | Operaciones en Documents del sandbox, orientación y modo offline | Aprobado parcial | Plugin `selector_carpetas_ios` probado en iOS CI (`ios.yml`); modo offline inherente (app 100 % sin red) |
+| IG-01 | Ruta feliz | Espacio privado y visores TXT/MD/JSON/XML/imagen en simulador | Aprobado | `docs/img/ios/gestor/01-inicio-guinda.png`, `03-explorador.png`, `04-visor-json.png`, `05-visor-xml.png`, `06-visor-imagen.png` |
+| IG-02 | Alterna/límite | JSON/XML inválidos, archivo vacío y `.xyz` no soportado; mensajes legibles | Aprobado parcial | `docs/img/ios/gestor/04-visor-json.png` (JSON inválido); demás casos cubiertos por `test/servicio_test.dart` y `test/validador_test.dart` |
+| IG-03 | Regresión | Temas Guinda/Azul y claro/oscuro sin perder estado | Aprobado | `docs/img/ios/gestor/01-inicio-guinda.png`, `02-tema-azul.png`, `09-modo-oscuro.png` |
+| IG-04 | Navegación/estado | Favoritos/recientes tras cerrar y reabrir; ruta eliminada marcada no disponible | Aprobado | `docs/img/ios/gestor/03-explorador.png`, `08-recientes.png`; persistencia verificada en pruebas unitarias con `repositorio_ubicaciones` |
+| IG-05 | Accesibilidad | Semántica y escala 2.0 sin overflow | Aprobado parcial | Semántica cubierta en widget tests; sin overflow verificado en pantalla estrecha; VoiceOver manual no disponible en simulador de CI |
+| IG-06 | Compatibilidad | Operaciones en Documents del sandbox, orientación y modo offline | Aprobado | `docs/img/ios/gestor/03-explorador.png`; modo offline inherente (app 100 % sin red); orientación verificada en simulador |
 
 ### iOS — Juego
 

@@ -99,8 +99,17 @@ guardan con nombres significativos en `docs/img/android/gestor/`.
 ### Capturas iOS
 
 El workflow `ios.yml` compila la app, la ejecuta en un simulador de iPhone y
-toma capturas con `integration_test` + `flutter drive`. Los PNG se descargan
-como artefactos y se colocan en `docs/img/ios/gestor/`.
+toma capturas con `integration_test` + `flutter drive`.
+
+### Evidencia iOS del gestor
+
+| Inicio | Tema Azul | Explorador | Visor JSON |
+|---|---|---|---|
+| ![Inicio](docs/img/ios/gestor/01-inicio-guinda.png) | ![Azul](docs/img/ios/gestor/02-tema-azul.png) | ![Explorador](docs/img/ios/gestor/03-explorador.png) | ![JSON](docs/img/ios/gestor/04-visor-json.png) |
+
+| Visor XML | Visor imagen | Imagen girada | Recientes | Modo oscuro |
+|---|---|---|---|---|
+| ![XML](docs/img/ios/gestor/05-visor-xml.png) | ![Imagen](docs/img/ios/gestor/06-visor-imagen.png) | ![Girada](docs/img/ios/gestor/07-imagen-girada.png) | ![Recientes](docs/img/ios/gestor/08-recientes.png) | ![Oscuro](docs/img/ios/gestor/09-modo-oscuro.png) |
 
 ---
 
@@ -240,7 +249,7 @@ Las capturas se organizan por sistema y app:
 
 - `docs/img/android/gestor/01-inicio-guinda.png` … `09-modo-oscuro.png`
 - `docs/img/android/juego/01-inicio.png` … `09-laboratorio-contrarreloj.png`
-- `docs/img/ios/gestor/` — capturas generadas por el workflow `ios.yml`; disponibles como artefacto `ios-gestor_archivos` en GitHub Actions
+- `docs/img/ios/gestor/01-inicio-guinda.png` … `09-modo-oscuro.png`
 - `docs/img/ios/juego/01-inicio.png` … `08-ajustes-tema-azul.png`
 
 Cada archivo se nombra al momento de tomarlo y se describe en
