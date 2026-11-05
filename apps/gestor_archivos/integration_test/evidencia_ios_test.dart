@@ -27,6 +27,22 @@ Future<void> volver(WidgetTester tester) async {
   await tester.pumpAndSettle();
 }
 
+Future<void> tocarEntrada(WidgetTester tester, String nombre) async {
+  final finder = find.byKey(Key('entrada-$nombre'));
+  for (var intento = 0; intento < 4 && finder.evaluate().isEmpty; intento++) {
+    await tester.drag(find.byType(ListView).last, const Offset(0, -320));
+    await tester.pump(const Duration(milliseconds: 300));
+  }
+  for (var intento = 0; intento < 4 && finder.evaluate().isEmpty; intento++) {
+    await tester.drag(find.byType(ListView).last, const Offset(0, 320));
+    await tester.pump(const Duration(milliseconds: 300));
+  }
+  await tester.ensureVisible(finder);
+  await tester.pump(const Duration(milliseconds: 200));
+  await tester.tap(finder);
+  await tester.pumpAndSettle();
+}
+
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -49,25 +65,21 @@ void main() {
     await captura(tester, binding, '02-tema-azul');
 
     // Explorar los archivos de ejemplo.
-    await tester.tap(find.byKey(const Key('entrada-Ejemplos')));
-    await tester.pumpAndSettle();
+    await tocarEntrada(tester, 'Ejemplos');
     await captura(tester, binding, '03-explorador');
 
     // Visor JSON.
-    await tester.tap(find.byKey(const Key('entrada-datos.json')));
-    await tester.pumpAndSettle();
+    await tocarEntrada(tester, 'datos.json');
     await captura(tester, binding, '04-visor-json');
     await volver(tester);
 
     // Visor XML.
-    await tester.tap(find.byKey(const Key('entrada-configuracion.xml')));
-    await tester.pumpAndSettle();
+    await tocarEntrada(tester, 'configuracion.xml');
     await captura(tester, binding, '05-visor-xml');
     await volver(tester);
 
     // Visor de imagen.
-    await tester.tap(find.byKey(const Key('entrada-paisaje_escom.png')));
-    await tester.pumpAndSettle();
+    await tocarEntrada(tester, 'paisaje_escom.png');
     await captura(tester, binding, '06-visor-imagen');
     await tester.tap(find.byKey(const Key('imagen-girar')));
     await tester.pump(const Duration(milliseconds: 400));
@@ -75,8 +87,7 @@ void main() {
     await volver(tester);
 
     // Archivo sin visor interno.
-    await tester.tap(find.byKey(const Key('entrada-muestra.xyz')));
-    await tester.pumpAndSettle();
+    await tocarEntrada(tester, 'muestra.xyz');
     await captura(tester, binding, '08-formato-no-soportado');
     await tester.tap(find.text('Cancelar'));
     await tester.pumpAndSettle();
